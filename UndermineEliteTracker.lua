@@ -1,0 +1,20 @@
+local mainFrame = CreateFrame("Frame", "UndermineEliteFrame", UIParent, "BasicFrameTemplateWithInset")
+mainFrame:SetSize(500,350)
+mainFrame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
+
+mainFrame.TitleBg:SetHeight(30)
+mainFrame.title = mainFrame:CreateFontString(nil, "OVERLAY","GameFontHighlight")
+mainFrame.title:SetPoint("TOPLEFT", mainFrame.TitleBg, "TOPLEFT", 5, -3)
+mainFrame.title:SetText("Undermine Elite Tracker")
+
+mainFrame:Hide()
+
+mainFrame:EnableMouse(true)
+mainFrame:SetMovable(true)
+mainFrame:RegisterForDrag("LeftButton")
+mainFrame:SetScript("OnDragStart", function(self)
+    self:StartMoving()
+end)
+mainFrame:SetScript("OnDragStop", function(self)
+    self:StopMovingOrSizing()
+end) 
