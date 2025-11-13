@@ -1,3 +1,5 @@
+-- MainFrame
+
 local mainFrame = CreateFrame("Frame", "UndermineEliteFrame", UIParent, "BasicFrameTemplateWithInset")
 mainFrame:SetSize(500,350)
 mainFrame:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
@@ -18,3 +20,16 @@ end)
 mainFrame:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
 end) 
+
+-- Slash Command
+
+SLASH_UNDERMINE1 = "/uet"
+SlashCmdList["UNDERMINE"] = function()
+    if mainFrame:IsShown() then 
+        mainFrame:Hide()
+    else
+        mainFrame:Show()
+    end
+end
+
+table.insert(UISpecialFrames, "UndermineEliteFrame")
